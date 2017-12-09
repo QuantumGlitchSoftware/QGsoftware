@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+		<!--Browser tab title-->
+		<title>Adventures of The Protagonist</title>
+		
+		<!--Browser tab image-->
+		<link rel="shortcut icon" href="QGS.jpg">
+		
+		<style>
+		* {
+			text-align: center;
+			color: white;
+			background-color: black;
+		}
+		
+		input {
+			color:black;
+			background-color: white;
+		}
+		</style>
+	
+	</head>
+	<body>
+		
+		<!--Heading-->
+		<h1>Adventures Of The Protagonist</h1>
+		
+		<hr>
+		
+		<!--Description-->
+		<p>You walk up the stairs and they squeak as you step. When you reach the<br>
+		top you see a door that is open at the end of the hall. You walk to the<br>
+		room at the end of the hall, then push the door open and enter.</p>
+		
+		<!--Image-->
+		<img src="textures/Upstairs.JPG"/>
+		
+		<!--Choices-->
+			<p>A) Go to sleep</p>
+			<p>B) Look out the window.</p>
+			
+		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
+		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
+		
+		<br>
+		
+		<hr>
+		
+		<!--Logo-->
+		<img src="textures/QGS2.jpg" height="42" width="42">
+		
+		<script>
+			//This game was created by QuantumGlitch Software. Programming by: Aidan Beck. Written by: Jonathan Pence & Carter Beck. Storyboard by: Jonathan Pence and Aidan Beck. Textures by: Carter Beck.
+			//Copyright CC-BY
+			
+			console.log("This game was created by QuantumGlitch Software. Programming by: Aidan Beck. Written by: Jonathan Pence & Carter Beck. Storyboard by: Jonathan Pence and Aidan Beck. Textures by: Carter Beck.");
+			console.log("Copyright CC-BY");
+			
+			//Choice Buttons
+			//Choice A
+			function choiceA() {
+				window.location = "FrontDoor.html";
+			}	
+			//Choice B
+			function choiceB() {
+				window.location = "Upstairs.html";
+			}
+		</script>
+	
+	</body>
+</html>
