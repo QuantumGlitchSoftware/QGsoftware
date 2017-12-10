@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html>
-	<!--This game was created by QuantumGlitch Software. Programming by: Super. Written by: Tek & Zyr. Textures by: Tek. Copyright CC BY.-->
+	<!--[YOU CAN GIVE CREDIT TO YOURSELF HERE]-->
 	
 	<!--Engine developed by QuantumGlitched Software quantumglitchsoftware.github.io Copyright CC BY-->
 	<head>
 		
 		<!--Browser tab title-->
-		<title>Adventures of The Protagonist</title>
+		<title>[YOU CAN PUT YOUR TITLE HERE]</title>
 		
 		<!--Browser tab image-->
-		<link rel="shortcut icon" href="QGS.jpg">
+		<link rel="shortcut icon" href="[YOU CAN PUT AN IMAGE FILE HERE]">
 		
 		<style>
 		* {
@@ -30,26 +30,24 @@
 	<body>
 		
 		<!--Heading-->
-		<h1>Adventures Of The Protagonist</h1>
+		<h1>[YOU CAN PUT YOUR TITLE HERE]</h1>
 		
 		<hr>
 		
 		<!--Description-->
-		<p>When you open your eyes you find that you were sleeping on the wooden<br>
-		floorboard of a house. You stand up you see a door in front of you, as<br>
-		well as a staircase. There is also a hallway leading to a backdoor and<br>
-		garage behind you.</p>
+		<p>[YOU CAN PUT DESCRIPTION TEXT HERE, USE <br> TAGS TO MOVE TO THE NEXT LINE]</p>
 		
 		<!--Image-->
-		<img src="textures/Start.JPG"/>
+		<img src="[YOU CAN PUT TEXTURE/IMAGE FILE HERE]"/>
 		
 		<!--Choices-->
-			<p>A) Go out the front door.</p>
-			<p>B) Walk upstairs.</p>
-			<p>C) Enter the garage.</p>
-			<p>D) Go out the back door</p>
+			<p>A) [YOU CAN PUT CHOICE A HERE]</p>
+			<p>B) [YOU CAN PUT CHOICE B HERE]</p>
+			<p>C) [YOU CAN PUT CHOICE C HERE]</p>
+			<p>D) [YOU CAN PUT CHOICE D HERE]</p>
 		
 		<!--Buttons-->
+		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
 		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
 		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
 		<input id="choiceC" type="button" value="C" onclick="choiceC();"/>
@@ -65,24 +63,27 @@
 		<br>
 		
 		<!--Logo-->
-		<img src="textures/QGS2.jpg"/>
+		<img src="[YOU CAN PUT YOUR LOGO IMAGE FILE HERE]"/>
 		
 		<script>
 			//log credits
-			console.log("This game was created by QuantumGlitch Software. Programming by: Super. Written by: Tek & Zyr. Textures by: Tek. Copyrigt CC BY.");
 			
+			//Game Credits
+			console.log("[YOU CAN GIVE CREDIT TO YOURSELF HERE]");
+			
+			//Engine Credits
 			console.log("Engine developed by QuantumGlitched Software quantumglitchsoftware.github.io Copyright CC BY");
 			
 			//chance variable
 			var chance = Math.random() * 100;
-			alert(chance);
-			
+			//alert(chance);
 			//Choice Buttons
 			
 			//Choice A
+			//[NOTE: FOR HELP WITH THIS PART GO TO quantumglitchsoftware.github.io/Engines/QGTEXTENGINE.html]
 			function choiceA() {
 				if (chance < 100) {
-					window.location = "FrontDoor.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -91,7 +92,7 @@
 			//Choice B
 			function choiceB() {
 				if (chance < 100) {
-					window.location = "Upstairs.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -100,7 +101,7 @@
 			//Choice C
 			function choiceC() {
 				if (chance < 100) {
-					window.location = "Garage.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -109,7 +110,7 @@
 			//Choice D
 			function choiceD() {
 				if (chance < 100) {
-					window.location = "BackDoor.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
