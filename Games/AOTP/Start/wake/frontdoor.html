@@ -35,27 +35,25 @@
 		<hr>
 		
 		<!--Description-->
-		<p>When you open your eyes you find that you were
-		<br> sleeping on the wooden floorboard of a house.<br>
-		When you stand up you see a door in front of you,<br>
-		as well as a staircase. There is also a hallway<br>
-		leading to a backdoor and garage behind you.</p>
+		<p>Upon exit, the smell of gasoline is distinct, fires burn on streets<br>
+		and houses. You soon find the source of the fires, for three humanoid<br>
+		robots are traveling closely together. They all carry guns, and what<br>
+		look like rocket launchers. The machine invasion has begun. And the<br>
+		writers call for a story.</p>
 		
 		<!--Image-->
 		<img src="textures/Start.JPG">
 		
 		<!--Choices-->
-			<p>A) Go out the front door.</p>
-			<p>B) Climb upstairs.</p>
-			<p>C) Enter the garage.</p>
-			<p>D) Go out the back door.</p>
+			<p>A) Attack the bots.</p>
+			<p>B) Flee to the woods.</p>
+			<p>C) Run for the sewers.</p>
 		
 		<!--Buttons-->
 		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
 		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
 		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
 		<input id="choiceC" type="button" value="C" onclick="choiceC();"/>
-		<input id="choiceD" type="button" value="D" onclick="choiceD();"/>
 		
 		<br>
 		<br>
@@ -88,7 +86,7 @@
 			//[NOTE: FOR HELP WITH THIS PART GO TO quantumglitchsoftware.github.io/Engines/QGTEXTENGINE.html]
 			function choiceA() {
 				if (chance < 100) {
-					window.location = "wake/frontdoor.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -97,7 +95,7 @@
 			//Choice B
 			function choiceB() {
 				if (chance < 100) {
-					window.location = "wake/upstairs.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -106,7 +104,7 @@
 			//Choice C
 			function choiceC() {
 				if (chance < 100) {
-					window.location = "wake/garage.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -115,11 +113,31 @@
 			//Choice D
 			function choiceD() {
 				if (chance < 100) {
-					window.location = "wake/backdoor.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
-			}
+			}				
+			/*	      .,-:;//;:=,
+			          . :H@@@MM@M#H/.,+%;,
+			       ,/X+ +M@@M@MM%=,-%HMMM@X/,
+			     -+@MM; $M@@MH+-,;XMMMM@MMMM@+-
+			    ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.
+			  ,%MM@@MH ,@%=             .---=-=:=,.
+			  =@#@@@MX.,                -%HX$$%%%:;
+			 =-./@M@M$                   .;@MMMM@MM:
+			 X@/ -$MM/                    . +MM@@@M$
+			,@M@H: :@:                    . =X#@@@@-
+			,@@@MMX, .                    /H- ;@M@M=
+			.H@@@@M@+,                    %MM+..%#$.
+			 /MMMM@MMH/.                  XM@MH; =;
+			  /%+%$XHH@$=              , .H@@@@MX,
+			   .=--------.           -%H.,@@@@@MX,
+			   .%MM@@@HHHXX$$$%+- .:$MMX =M@@MM%.
+			     =XMMM@MM@MM#H;,-+HMM@M+ /MMMX=
+			       =%@M@M#@$-.=$@MM@@@M; %M%=
+			         ,:+$+-,/H#MMMMMMM@= =,
+			               =++%%%%+/:-.		*/	
 		</script>
 	
 	</body>
