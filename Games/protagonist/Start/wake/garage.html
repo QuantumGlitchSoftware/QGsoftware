@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<!--| Game Developed by Quantumglitch Software | quantumglitchsoftware.github.io Copyright CC BY | Programming by: Super| Writing by: Zyr & Tek | Art by: Tek |-->
+	<!--| Game Developed by Quantumglitch Software | quantumglitchsoftware.github.io Copyright CC BY | Programming by: Super| Writing by: Super, Zyr & Tek | Art by: Tek |-->
 	
 	<!--Engine developed by QuantumGlitched Software quantumglitchsoftware.github.io Copyright CC BY-->
 	<head>
@@ -35,27 +35,23 @@
 		<hr>
 		
 		<!--Description-->
-		<p>When you open your eyes you find that you were
-		<br> sleeping on the wooden floorboard of a house.<br>
-		When you stand up you see a door in front of you,<br>
-		as well as a staircase. There is also a hallway<br>
-		leading to a backdoor and garage behind you.</p>
+		<p>It's a garage. What did you expect? It's filled to the<br>
+		brim with junk, typical garage stuff. The writers may not<br>
+		have given you much (or any) detail, but they sure didn't<br>
+		skimp on the garage. Theres a button connected to the garage<br>
+		door, but it's rusted over and you doubt it works.</p>
 		
 		<!--Image-->
 		<img src="textures/Start.JPG">
 		
 		<!--Choices-->
-			<p>A) Go out the front door.</p>
-			<p>B) Climb upstairs.</p>
-			<p>C) Enter the garage.</p>
-			<p>D) Go out the back door.</p>
+			<p>A) Try the button.</p>
+			<p>B) Sit down and look at the wall.</p>
 		
 		<!--Buttons-->
 		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
 		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
 		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
-		<input id="choiceC" type="button" value="C" onclick="choiceC();"/>
-		<input id="choiceD" type="button" value="D" onclick="choiceD();"/>
 		
 		<br>
 		<br>
@@ -87,8 +83,8 @@
 			//Choice A
 			//[NOTE: FOR HELP WITH THIS PART GO TO quantumglitchsoftware.github.io/Engines/QGTEXTENGINE.html]
 			function choiceA() {
-				if (chance < 100) {
-					window.location = "wake/frontdoor.html";
+				if (chance < 5) {
+					window.location = "";
 				} else {
 					window.location = "";
 				}
