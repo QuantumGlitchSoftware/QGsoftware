@@ -39,23 +39,26 @@
 		open the back door. The odor of rotten flesh Sickens you.<br>
 		Zombies stumbled around the yard, but when they see you they<br>
 		walked towards you with their arms stretched outwards. Zombies,<br>
-		eh? Kinda overused, but at least you have a story now.</p>
+		eh? Kinda overused, but at least you have a story now. Or do<br>
+		you? I mean, yes this is a story, but is it yours? Maybe<br>
+		this is someone else's story. Surely, if this WAS your story,<br>
+		wouldn't you be sure? And even if this IS your story, that<br>
+		doesn't guarentee you have a purpose, as the story might also<br>
+		be purposeless. The zombies are getting closer.</p>
 		
 		<!--Image-->
 		<img src="textures/Start.JPG">
 		
 		<!--Choices-->
-			<p>A) Go out the front door.</p>
-			<p>B) Climb upstairs.</p>
-			<p>C) Enter the garage.</p>
-			<p>D) Go out the back door.</p>
+			<p>A) Fight them!</p>
+			<p>B) Run!</p>
+			<p>C) Kindly invite them to a game of D&D</p>
 		
 		<!--Buttons-->
 		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
 		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
 		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
 		<input id="choiceC" type="button" value="C" onclick="choiceC();"/>
-		<input id="choiceD" type="button" value="D" onclick="choiceD();"/>
 		
 		<br>
 		<br>
@@ -106,7 +109,7 @@
 			//Choice C
 			function choiceC() {
 				if (chance < 100) {
-					window.location = "wake/garage.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
@@ -115,7 +118,7 @@
 			//Choice D
 			function choiceD() {
 				if (chance < 100) {
-					window.location = "wake/backdoor.html";
+					window.location = "";
 				} else {
 					window.location = "";
 				}
