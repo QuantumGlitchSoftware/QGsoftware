@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+		<style>
+			* {
+			background-color: black;
+			text-align: center;
+			color: #1ec503;
+			font-family: 'Aldrich';
+			cursor: crosshair;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1>ENTER PROTOCOL CODE</h1>
+		<input type="text" id="passcode">
+		<button onclick="pFunc()">ENTER</button>
+		<br>
+		<br>
+		<p  id="clue">---</p>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1>ADMIN LOGIN</h1>
+		<input type="text" id="loginuser" placeholder="USERNAME">
+		<br>
+		<input type="text" id="loginpass" placeholder="PASSWORD">
+		<br>
+		<button onclick="lFunc()">ENTER</button>
+		<script>
+		//Code by quantumglitchsoftware.github.io
+		
+		//Protocal codes
+		//button function
+		function pFunc() {	
+			
+			//pass variable
+			var pass = document.getElementById("passcode").value;
+   			
+			/*LOOKING AT THE CODE IS NOT PART OF THE ESCAPE ROOM.
+			PLEASE STOP TRYING TO CHEAT.*/
+			
+			//passcodes
+			if (pass === "") {
+				document.getElementById("clue").innerHTML = "---";
+			
+			} else if (pass === "PASSCODE0") {
+				document.getElementById("clue").innerHTML = "CLUE 1: TEST TEST TEST";
+			
+			} else if (pass === "PASSCODE1") {
+				document.getElementById("clue").innerHTML = "CLUE 2: 12345";
+			
+			} else {
+				document.getElementById("clue").innerHTML = "SYSTEM ERROR: COMMAND NOT RECOGNIZED";
+			}
+		}	
+		
+		//Login function
+		function lFunc() {
+			
+			//username and password variable defined
+			var lu = document.getElementById("loginuser").value;
+			var lp = document.getElementById("loginpass").value;
+			
+			//test for password success
+			if (lu === "USER") {
+				if (lp === "PASS") {
+					alert("We could make it go to a captains log or something here for the final clue.");
+				} else {
+					console.log("password fail");
+				}
+			} else {
+				console.log("password fail");
+			}
+		}
+		</script>
+	
+	</body>
+
+</html>
