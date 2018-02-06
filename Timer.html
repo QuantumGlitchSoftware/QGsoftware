@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			* {
+			
+				text-align: center;
+			}
+			
+			input {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<br>
+		<h1 id="timer">25:00</h1>
+		<input value="START" type="button" onclick="buttonFunc();"/>
+		<script>
+			
+			//Start 25 minute timer
+			function buttonFunc() {
+				
+				//second timer thing
+				var timerSecond = setInterval(function(){ TFTimer() }, 1000);
+				
+			}
+			
+			//set timer start
+			var seconds = 0;
+			var minutes = 25;
+			
+			//25 minute countdown function
+			function TFTimer() {
+				
+				//takes away 1 second
+				seconds = seconds - 1;
+				
+				//sets up display for normal
+				var display = minutes + ":" + seconds;
+				
+				//tests for single digit 0 bug
+				if (seconds < 10) {
+					var display = minutes + ":" + "0" + seconds;
+				}
+				
+				//tests for new minute
+				if (seconds === -1) {
+					seconds = 59;
+					minutes = minutes - 1;
+					var display = minutes + ":" + seconds;
+				}
+				
+				//print time
+				document.getElementById("timer").innerHTML = display;
+			
+				//test for 25 timer done function
+				testForDone();
+			}
+				
+			
+			//test for 25 timer done function
+			function testForDone() {
+				if (minutes === 0 && seconds === 0) {
+					alert("hey");
+					
+					function stopInterval() {
+						clearInterval(timerSecond);
+					}
+
+					
+					//play sound
+					var audio = new Audio('25_minute_done.mp3');
+					audio.play();
+				}
+			}
+		</script>
+	</body>
+</html>
