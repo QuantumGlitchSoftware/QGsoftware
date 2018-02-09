@@ -26,6 +26,7 @@
 		<br>
 		<br>
 		<p  id="clue">---</p>
+		<img id="snazzy" src="snazzy.bmp"/>
 		<br>
 		<br>
 		<br>
@@ -38,6 +39,9 @@
 		<button onclick="lFunc()">ENTER</button>
 		<script>
 		//Code by quantumglitchsoftware.github.io
+		
+		//easter egg
+		document.getElementById("snazzy").styleL = "hidden";
 		
 		//Protocal codes
 		//button function
@@ -86,8 +90,8 @@
 			} else if (pass ==="") {
 				document.getElementById("clue").innerHTML = "";
 				
-			} else if (pass ==="") {
-				document.getElementById("clue").innerHTML = "";
+			} else if (pass ==="ELEPHANT") {
+				document.getElementById("snazzy").styleL = "visible";
 			
 			} else {
 				document.getElementById("clue").innerHTML = "SYSTEM ERROR: COMMAND NOT RECOGNIZED. ONLY CAPITAL  CHARACTERS ACCEPTED.";
