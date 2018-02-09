@@ -41,7 +41,7 @@
 		//Code by quantumglitchsoftware.github.io
 		
 		//easter egg
-		document.getElementById("snazzy").style = "hidden";
+		document.getElementById("snazzy").style.visibility = "hidden";
 		
 		//Protocal codes
 		//button function
@@ -61,10 +61,10 @@
 				document.getElementById("clue").innerHTML = "ATOMIC NUMBER GOLD";
 			
 			} else if (pass === "79") {
-				document.getElementById("clue").innerHTML = "DEMO COMPLETE";
+				document.getElementById("clue").innerHTML = "INVESTIGATE THE CRYO CHAMBERS";
 			
-			} else if (pass ==="") {
-				document.getElementById("clue").innerHTML = "";
+			} else if (pass ==="???") {
+				document.getElementById("clue").innerHTML = "THE BLACKLIGHT HAS BEEN OPENED, LOOK UNDER THE PIANO FEET";
 			
 			} else if (pass ==="") {
 				document.getElementById("clue").innerHTML = "";
@@ -91,7 +91,7 @@
 				document.getElementById("clue").innerHTML = "";
 				
 			} else if (pass ==="ELEPHANT") {
-				document.getElementById("snazzy").style = "visible";
+				document.getElementById("snazzy").style.visibility = "visible";
 			
 			} else {
 				document.getElementById("clue").innerHTML = "SYSTEM ERROR: COMMAND NOT RECOGNIZED. ONLY CAPITAL  CHARACTERS ACCEPTED.";
