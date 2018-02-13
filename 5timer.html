@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			* {
+				font-family: "Times New Roman", Times, serif;
+				text-align: center;
+			}
+			#startbutton {
+				color: white;
+				background-color: green;
+				height: 50px;
+				width: 100px;
+				margin: 0 auto;
+			}
+			#resetbutton {
+				color: white;
+				background-color: red;
+				height: 50px;
+				width: 100px;
+				margin: 0 auto;
+			}
+			#Breaks, #Works, {
+				border: solid;	
+				height: 100px;
+				width: 50px;
+				float: center;
+			}
+			#timer {
+				font-size: 100px;
+			}
+		</style>
+	</head> 
+	<body>
+		<h1 id="timer">5:00</h1>
+		<input value="START" id="startbutton" type="button" onclick="buttonFunc();"/>
+		<input value="RESET" id="resetbutton" type="button" onclick="resetFunc();"/>
+		<script>
+			//hide reset
+			document.getElementById("resetbutton").style.display="none";
+			
+			//set timer start
+			var seconds = 0;
+			var minutes = 5;
+			
+			//Start 25 minute timer
+			function buttonFunc() {
+				//second timer thing
+				var timerSecond = setInterval(function(){ TFTimer() }, 1000);
+				
+				//set button
+				document.getElementById("startbutton").style.display ="none";
+				document.getElementById("resetbutton").style.display="block";
+			}
+			
+			//25 minute countdown function
+			function TFTimer() {
+				
+				//timeout 1 second
+				setTimeout('', 1000);
+				
+				//takes away 1 second
+				seconds = seconds - 1;
+				
+				//sets up display for normal
+				var display = minutes + ":" + seconds;
+				
+				//tests for single digit 0 bug
+				if (seconds < 10) {
+					var display = minutes + ":" + "0" + seconds;
+				}
+				
+				//tests for new minute
+				if (seconds === -1) {
+					seconds = 59;
+					minutes = minutes - 1;
+					var display = minutes + ":" + seconds;
+				}
+				
+				//print time
+				document.getElementById("timer").innerHTML = display;
+			
+				//test for 25 timer done function
+				testForDone();
+			}
+			
+			//test for worktimer 0
+			function testForDone() {
+				if (minutes === 0 && seconds === 0) {
+					
+					window.location = "25timer.html";
+					
+					
+					//play sound
+					var audio = new Audio('25_minute_done.mp3');
+					audio.play();
+				}
+			}
+		
+			//reset
+			function resetFunc() {
+				document.getElementById("startbutton").style.display ="block";
+				document.getElementById("resetbutton").style.display ="none";
+				seconds = 0;
+				minutes = 25;
+				window.location = "25timer.html";
+			}
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
