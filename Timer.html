@@ -9,14 +9,14 @@
 			#startbutton {
 				color: white;
 				background-color: green;
-				height: 100px;
+				height: 50px;
 				width: 100px;
 				margin: 0 auto;
 			}
 			#resetbutton {
 				color: white;
 				background-color: red;
-				height: 100px;
+				height: 50px;
 				width: 100px;
 				margin: 0 auto;
 			}
@@ -26,33 +26,15 @@
 				width: 50px;
 				float: center;
 			}
-			#Ad {
-				border: solid;
-				height: 100px;
-				width: 100px;
-				float: center;
-				margin: auto;
+			#timer {
+				font-size: 100px;
 			}
 		</style>
 	</head> 
 	<body>
-		<br>
 		<h1 id="timer">25:00</h1>
 		<input value="START" id="startbutton" type="button" onclick="buttonFunc();"/>
 		<input value="RESET" id="resetbutton" type="button" onclick="resetFunc();"/>
-		<br>
-		<div>
-			<h2>Sessions Until Long Break: 3</h2>
-		</div>
-		<div id="Breaks">
-			<h2>Breaks: 0</h2>
-		</div>
-		<div id="Works">
-			<h2>Work Sessions: 0</h2>
-		</div>
-		<div id="Ad">
-			<h1>Ad</h1>
-		</div>
 		<script>
 			//hide reset
 			document.getElementById("resetbutton").style.display="none";
@@ -123,7 +105,7 @@
 				document.getElementById("resetbutton").style.display ="none";
 				seconds = 0;
 				minutes = 25;
-				window.location
+				window.location = "";
 			}
 			
 			
