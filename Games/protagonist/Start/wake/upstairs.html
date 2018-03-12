@@ -52,13 +52,11 @@
 		<!--Choices-->
 			<p>A) Sleep.</p>
 			<p>B) Look out the window.</p>
-			<p>C) Destroy scrubs in Quake Live.</p>
 		
 		<!--Buttons-->
 		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
 		<input id="choiceA" type="button" value="A" onclick="choiceA();"/>
 		<input id="choiceB" type="button" value="B" onclick="choiceB();"/>
-		<input id="choiceC" type="button" value="C" onclick="choiceC();"/>
 		
 		<br>
 		<br>
@@ -91,7 +89,7 @@
 			//[NOTE: FOR HELP WITH THIS PART GO TO quantumglitchsoftware.github.io/Engines/QGTEXTENGINE.html]
 			function choiceA() {
 				if (chance < 100) {
-					window.location = "wake/frontdoor.html";
+					window.location = "upstairs/sleep.html";
 				} else {
 					window.location = "";
 				}
@@ -100,7 +98,7 @@
 			//Choice B
 			function choiceB() {
 				if (chance < 100) {
-					window.location = "wake/upstairs.html";
+					window.location = "upstairs/window.html";
 				} else {
 					window.location = "";
 				}
