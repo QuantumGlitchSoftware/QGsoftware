@@ -41,14 +41,14 @@
 		little home seems to be floating in an endless darkness- an eternal<br>
 		void of simply nothing. Your eyes are drawn to the nothingness,<br>
 		absorbing it in, capturing it. Is this what this journey led you to?<br>
-		Nothing? and that's where im stuck lol</p>
+		Nothing?</p>
 		
 		<!--Image-->
 		<img src="textures/Start.JPG">
 		
 		<!--Choices-->
-			<p>A) Attack the bots.</p>
-			<p>C) Run for the sewers.</p>
+			<p>A) Jump</p>
+			<p>C) Go back inside</p>
 		
 		<!--Buttons-->
 		<!--[NOTE: YOU CAN DELETE SOME OF THESE IF YOU WANT LESS CHOICES]-->
@@ -86,7 +86,7 @@
 			//[NOTE: FOR HELP WITH THIS PART GO TO quantumglitchsoftware.github.io/Engines/QGTEXTENGINE.html]
 			function choiceA() {
 				if (chance < 100) {
-					window.location = "";
+					window.location = "frontdoor/void.html";
 				} else {
 					window.location = "";
 				}
@@ -95,7 +95,7 @@
 			//Choice B
 			function choiceB() {
 				if (chance < 100) {
-					window.location = "";
+					window.location = "frontdoor/insane.html";
 				} else {
 					window.location = "";
 				}
