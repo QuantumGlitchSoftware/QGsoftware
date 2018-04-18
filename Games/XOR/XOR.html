@@ -33,6 +33,11 @@
             }
             
             #side {
+                color: blue;
+                font-size: 30px;
+                text-align: center;
+            }
+            #eSide {
                 color: red;
                 font-size: 30px;
                 text-align: center;
@@ -54,6 +59,7 @@
             <tr>
                 <td id="sidebar2">
                     <p id="side">0,0</p>
+                    <p id="eSide">9,5</p>
                 </td>
             </tr>
         </table>
@@ -61,7 +67,7 @@
         <!--Grid-->
         <table id="grid">
 			
-            <!--row 0-->
+            <!--row 5-->
             <tr>
                 <td id="p0,5"></td>
 				<td id="p1,5"></td>
@@ -75,7 +81,7 @@
                 <td id="p9,5"></td>
             </tr>
 			
-            <!--row 1-->
+            <!--row 4-->
             <tr>
 				<td id="p0,4"></td>
 				<td id="p1,4"></td>
@@ -89,7 +95,7 @@
                 <td id="p9,4"></td>
 			</tr>
             
-            <!--row 2-->
+            <!--row 3-->
             <tr>
                 <td id="p0,3"></td>
                 <td id="p1,3"></td>
@@ -103,7 +109,7 @@
                 <td id="p9,3"></td>
             </tr>
             
-            <!--row 3-->
+            <!--row 2-->
             <tr>
                 <td id="p0,2"></td>
                 <td id="p1,2"></td>
@@ -117,7 +123,7 @@
                 <td id="p9,2"></td>
             </tr>
             
-            <!--row 4-->
+            <!--row 1-->
             <tr>
                 <td id="p0,1"></td>
                 <td id="p1,1"></td>
@@ -131,9 +137,9 @@
                 <td id="p9,1"></td>
             </tr>
             
-            <!--row 5-->
+            <!--row 0-->
             <tr>
-                <td id="p0,0" style="background-color:red;"></td>
+                <td id="p0,0" style="background-color:blue;"></td>
                 <td id="p1,0"></td>
                 <td id="p2,0"></td>
                 <td id="p3,0"></td>
@@ -195,78 +201,89 @@
             }
             
             //add variables
-            Pos = xPos + "," + yPos;
-            document.getElementById("side").innerHTML = Pos;
-            Pos = "p" + Pos;
+            pos = xPos + "," + yPos;
+            document.getElementById("side").innerHTML = pos;
+            pos = "p" + pos;
             
             //visual movement
             var x = document.getElementsByTagName("td");
             
-            //shut up proper coding I can repeat myself as much as I want
-            x[2].style.backgroundColor = "black";
-            x[3].style.backgroundColor = "black";
-            x[4].style.backgroundColor = "black";
-            x[5].style.backgroundColor = "black";
-            x[6].style.backgroundColor = "black";
-            x[7].style.backgroundColor = "black";
-            x[8].style.backgroundColor = "black";
-            x[9].style.backgroundColor = "black";
-            x[10].style.backgroundColor = "black";
-            x[11].style.backgroundColor = "black";
-            x[12].style.backgroundColor = "black";
-            x[13].style.backgroundColor = "black";
-            x[14].style.backgroundColor = "black";
-            x[15].style.backgroundColor = "black";
-            x[16].style.backgroundColor = "black";
-            x[17].style.backgroundColor = "black";
-            x[18].style.backgroundColor = "black";
-            x[19].style.backgroundColor = "black";
-            x[20].style.backgroundColor = "black";
-            x[21].style.backgroundColor = "black";
-            x[22].style.backgroundColor = "black";
-            x[23].style.backgroundColor = "black";
-            x[24].style.backgroundColor = "black";
-            x[25].style.backgroundColor = "black";
-            x[26].style.backgroundColor = "black";
-            x[27].style.backgroundColor = "black";
-            x[28].style.backgroundColor = "black";
-            x[29].style.backgroundColor = "black";
-            x[30].style.backgroundColor = "black";
-            x[31].style.backgroundColor = "black";
-            x[32].style.backgroundColor = "black";
-            x[33].style.backgroundColor = "black";
-            x[34].style.backgroundColor = "black";
-            x[35].style.backgroundColor = "black";
-            x[36].style.backgroundColor = "black";
-            x[37].style.backgroundColor = "black";
-            x[38].style.backgroundColor = "black";
-            x[39].style.backgroundColor = "black";
-            x[40].style.backgroundColor = "black";
-            x[41].style.backgroundColor = "black";
-            x[42].style.backgroundColor = "black";
-            x[43].style.backgroundColor = "black";
-            x[44].style.backgroundColor = "black";
-            x[45].style.backgroundColor = "black";
-            x[46].style.backgroundColor = "black";
-            x[47].style.backgroundColor = "black";
-            x[48].style.backgroundColor = "black";
-            x[49].style.backgroundColor = "black";
-            x[50].style.backgroundColor = "black";
-            x[51].style.backgroundColor = "black";
-            x[52].style.backgroundColor = "black";
-            x[53].style.backgroundColor = "black";
-            x[54].style.backgroundColor = "black";
-            x[55].style.backgroundColor = "black";
-            x[56].style.backgroundColor = "black";
-            x[57].style.backgroundColor = "black";
-            x[58].style.backgroundColor = "black";
-            x[59].style.backgroundColor = "black";
-            x[60].style.backgroundColor = "black";
-            x[61].style.backgroundColor = "black";
+            //reset background loop
+            var movementLoop;
+            for (movementLoop = 0; movementLoop < 62; movementLoop++) {
+                x[movementLoop].style.backgroundColor = "black";
+            }     
+                
+            //color the squares
+            document.getElementById(pos).style.backgroundColor = "blue";
             
-            document.getElementById(Pos).style.backgroundColor = "red";
+            document.getElementById(Epos).style.backgroundColor = "red";
+            
                 
         }
-		</script>
+		//enemy movement
+        var Interval;
+        var Epos;
+        var ExPos = 9;
+        var EyPos = 5;
+        Interval = setInterval(eMove, 300);
+        function eMove() {
+            
+            var chance = Math.floor(Math.random() * 2);
+            if (chance === 0) {
+                if (ExPos < xPos) {
+                    ExPos = ExPos + 1;
+                } else if (ExPos > xPos) {
+                    ExPos = ExPos - 1;
+                } else {
+                    stalemate();
+                }
+            } else if (chance === 1) {
+                if (EyPos < yPos) {
+                    EyPos = EyPos + 1;
+                } else if (EyPos > yPos) {
+                    EyPos = EyPos - 1;
+                } else {
+                    stalemate();
+                }
+            }
+            
+            function stalemate() {
+                if (chance === 0) {
+                    if (EyPos < yPos) {
+                        EyPos = EyPos + 1;
+                    } else if (EyPos > yPos) {
+                        EyPos = EyPos - 1;
+                    }
+                } else {
+                    if (ExPos < xPos) {
+                        ExPos = ExPos + 1;
+                    } else if (ExPos > xPos) {
+                        ExPos = ExPos - 1;
+                    }
+                }
+            }
+            
+            
+            Epos = ExPos + "," + EyPos;
+            document.getElementById("eSide").innerHTML = Epos;
+            Epos = "p" + Epos;
+            
+            //enemy visual movement
+            var w = document.getElementsByTagName("td");
+        
+            //reset background loop 2
+            var eMovementLoop;
+            for (eMovementLoop = 0; eMovementLoop < 62; eMovementLoop++) {
+                    w[eMovementLoop].style.backgroundColor = "black";
+            } 
+        
+            //color the squares
+            document.getElementById(pos).style.backgroundColor = "blue";
+            
+            document.getElementById(Epos).style.backgroundColor = "red";
+            
+        }
+        </script>
     </body>
 </html>
