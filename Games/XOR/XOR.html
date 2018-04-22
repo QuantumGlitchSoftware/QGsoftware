@@ -19,11 +19,17 @@
             }
             
             #completion {
-                width: 756px;
+                width: 655px;
                 height: 60px;
+                font-size: 40px;
             }
             
-            #grid, #sidebar {
+            #level {
+                width: 90px;
+                text-align: center;
+            }
+            
+            #grid, #sidebar, #topbar, #levelbar{
                 display: inline-block;
             }
         
@@ -47,12 +53,17 @@
 	<body>
 		<h1>XOR</h1>
 		
-        
-        <table>
+        <table id="levelbar">
+            <tr>
+                <td id="level">LEVEL: 0</td>
+            </tr>
+        </table>
+        <table id="topbar">
             <tr>
                 <td id="completion"></td>
             </tr>
         </table>
+        <br>
         
         <!--Sidebar-->
         <table id="sidebar">
@@ -139,7 +150,7 @@
             
             <!--row 0-->
             <tr>
-                <td id="p0,0" style="background-color:blue;"></td>
+                <td id="p0,0"></td>
                 <td id="p1,0"></td>
                 <td id="p2,0"></td>
                 <td id="p3,0"></td>
@@ -153,30 +164,33 @@
         </table>
 		
         <script>
-		//XOR coded by SUPERGLITCHED @ QUANTUMGLITCHSOFTWARE.GITHUB.IO
-		var loop = true;
-		var key = null;
-		var pos = "0,0";
-		var xPos = 0;
-		var yPos = 0;
+//XOR developed by SUPERGLITCHED posted to QUANTUMGLITCHSOFTWARE.GITHUB.IO
+
+//BLUE SQUARE MOVEMENT
+        //set the blue starting coordinates
+        //blue position
+        var pos = "0,0";
+		//blue position on X axis
+        var xPos = 0;
+		//blue position on Y axis
+        var yPos = 0;
         
-        //Test for key press thing
+        //detect when a key is pressed
         window.addEventListener("keyup", checkKeyPressed, false);
-        
         function checkKeyPressed(e) {
             
-            //set position variables
+            //test for which key pressed and set coordinates
             if (e.keyCode == "40") {
-                //down
+                //go down
                 yPos = yPos - 1;
             } else if (e.keyCode == "39") {
-                //right
+                //go right
                 xPos = xPos + 1;
             } else if (e.keyCode == "38") {
-                //up
+                //go up
                 yPos = yPos + 1;
             } else if (e.keyCode == "37") {
-                //left
+                //go left
                 xPos = xPos - 1;
             }
             
@@ -200,36 +214,45 @@
                 xPos = 9;
             }
             
-            //add variables
+            //puts X and Y coordinates together blue square
             pos = xPos + "," + yPos;
+            
+            //sets sidebar coordinates
             document.getElementById("side").innerHTML = pos;
+            
+            //puts "p" in front of the variable to detect td class
             pos = "p" + pos;
             
             //visual movement
+            //make variable for all td tags
             var x = document.getElementsByTagName("td");
             
-            //reset background loop
+            //loop resets the background to black
             var movementLoop;
-            for (movementLoop = 0; movementLoop < 62; movementLoop++) {
+            for (movementLoop = 0; movementLoop < 63; movementLoop++) {
                 x[movementLoop].style.backgroundColor = "black";
             }     
                 
-            //color the squares
+            //colors the squares back in after background reset
             document.getElementById(pos).style.backgroundColor = "blue";
-            
-            document.getElementById(Epos).style.backgroundColor = "red";
-            
-                
+            document.getElementById(Epos).style.backgroundColor = "red";   
         }
-		//enemy movement
-        var Interval;
+		
+        
+//ENEMY 1 MOVEMENT
+        var enemyInterval;
         var Epos;
         var ExPos = 9;
         var EyPos = 5;
-        Interval = setInterval(eMove, 300);
+        
+        //set interval for enemy movement function every half second
+        enemyInterval = setInterval(eMove, 500);
         function eMove() {
             
+            //genarates random number from 0-1
             var chance = Math.floor(Math.random() * 2);
+            
+            //move towards player on X axis if chance = 0
             if (chance === 0) {
                 if (ExPos < xPos) {
                     ExPos = ExPos + 1;
@@ -238,7 +261,9 @@
                 } else {
                     stalemate();
                 }
-            } else if (chance === 1) {
+            } 
+            //move towards player on Y axis if chance = 1
+            else if (chance === 1) {
                 if (EyPos < yPos) {
                     EyPos = EyPos + 1;
                 } else if (EyPos > yPos) {
@@ -248,6 +273,8 @@
                 }
             }
             
+            
+            //stalemate function moves enemy towards the player on the other axis if they are already on the same chosen axis
             function stalemate() {
                 if (chance === 0) {
                     if (EyPos < yPos) {
@@ -264,7 +291,7 @@
                 }
             }
             
-            
+            //add enemy coordinates
             Epos = ExPos + "," + EyPos;
             document.getElementById("eSide").innerHTML = Epos;
             Epos = "p" + Epos;
@@ -274,16 +301,48 @@
         
             //reset background loop 2
             var eMovementLoop;
-            for (eMovementLoop = 0; eMovementLoop < 62; eMovementLoop++) {
+            for (eMovementLoop = 0; eMovementLoop < 63; eMovementLoop++) {
                     w[eMovementLoop].style.backgroundColor = "black";
             } 
         
             //color the squares
             document.getElementById(pos).style.backgroundColor = "blue";
-            
             document.getElementById(Epos).style.backgroundColor = "red";
             
         }
+        
+        
+//LEVEL TIMER
+        var timer;
+        var completionpercent = "";
+        var levelDisplay = "Level: 0";
+        var level = 0;
+        timer = setInterval(timerFunc, 1000);
+        function timerFunc() {
+            completionpercent = completionpercent + "|";
+            document.getElementById("completion").innerHTML = completionpercent;
+            if (completionpercent === "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||") {
+                
+                //reset bar
+                completionpercent = "";
+                
+                //change level
+                level = level + 1;
+                levelDisplay = "LEVEL: " + level;
+                document.getElementById("level").innerHTML = levelDisplay;
+            }
+        }
+
+//ENEMY COLLISIONS
+        /*while (Epos === pos) {
+                alert("GAME OVER");
+        }*/
+        
+//COLORS STARTING SQUARES
+        pos = "p0,0";
+        Epos = "p9,5";
+        document.getElementById(pos).style.backgroundColor = "blue";
+        document.getElementById(Epos).style.backgroundColor = "red";
         </script>
     </body>
 </html>
