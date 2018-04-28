@@ -80,86 +80,86 @@
 			
             <!--row 5-->
             <tr>
-                <td id="p0,5"></td>
-				<td id="p1,5"></td>
-                <td id="p2,5"></td>
-                <td id="p3,5"></td>
-                <td id="p4,5"></td>
-                <td id="p5,5"></td>
-                <td id="p6,5"></td>
-                <td id="p7,5"></td>
-                <td id="p8,5"></td>
-                <td id="p9,5"></td>
+                <td id="p0-5"></td>
+				<td id="p1-5"></td>
+                <td id="p2-5"></td>
+                <td id="p3-5"></td>
+                <td id="p4-5"></td>
+                <td id="p5-5"></td>
+                <td id="p6-5"></td>
+                <td id="p7-5"></td>
+                <td id="p8-5"></td>
+                <td id="p9-5"></td>
             </tr>
 			
             <!--row 4-->
             <tr>
-				<td id="p0,4"></td>
-				<td id="p1,4"></td>
-                <td id="p2,4"></td>
-                <td id="p3,4"></td>
-                <td id="p4,4"></td>
-                <td id="p5,4"></td>
-                <td id="p6,4"></td>
-                <td id="p7,4"></td>
-                <td id="p8,4"></td>
-                <td id="p9,4"></td>
-			</tr>
+				<td id="p0-4"></td>
+				<td id="p1-4"></td>
+                <td id="p2-4"></td>
+                <td id="p3-4"></td>
+                <td id="p4-4"></td>
+                <td id="p5-4"></td>
+                <td id="p6-4"></td>
+                <td id="p7-4"></td>
+                <td id="p8-4"></td>
+                <td id="p9-4"></td>
+            </tr>
             
             <!--row 3-->
             <tr>
-                <td id="p0,3"></td>
-                <td id="p1,3"></td>
-                <td id="p2,3"></td>
-                <td id="p3,3"></td>
-                <td id="p4,3"></td>
-                <td id="p5,3"></td>
-                <td id="p6,3"></td>
-                <td id="p7,3"></td>
-                <td id="p8,3"></td>
-                <td id="p9,3"></td>
+                <td id="p0-3"></td>
+                <td id="p1-3"></td>
+                <td id="p2-3"></td>
+                <td id="p3-3"></td>
+                <td id="p4-3"></td>
+                <td id="p5-3"></td>
+                <td id="p6-3"></td>
+                <td id="p7-3"></td>
+                <td id="p8-3"></td>
+                <td id="p9-3"></td>
             </tr>
             
             <!--row 2-->
             <tr>
-                <td id="p0,2"></td>
-                <td id="p1,2"></td>
-                <td id="p2,2"></td>
-                <td id="p3,2"></td>
-                <td id="p4,2"></td>
-                <td id="p5,2"></td>
-                <td id="p6,2"></td>
-                <td id="p7,2"></td>
-                <td id="p8,2"></td>
-                <td id="p9,2"></td>
+                <td id="p0-2"></td>
+                <td id="p1-2"></td>
+                <td id="p2-2"></td>
+                <td id="p3-2"></td>
+                <td id="p4-2"></td>
+                <td id="p5-2"></td>
+                <td id="p6-2"></td>
+                <td id="p7-2"></td>
+                <td id="p8-2"></td>
+                <td id="p9-2"></td>
             </tr>
             
             <!--row 1-->
             <tr>
-                <td id="p0,1"></td>
-                <td id="p1,1"></td>
-                <td id="p2,1"></td>
-                <td id="p3,1"></td>
-                <td id="p4,1"></td>
-                <td id="p5,1"></td>
-                <td id="p6,1"></td>
-                <td id="p7,1"></td>
-                <td id="p8,1"></td>
-                <td id="p9,1"></td>
+                <td id="p0-1"></td>
+                <td id="p1-1"></td>
+                <td id="p2-1"></td>
+                <td id="p3-1"></td>
+                <td id="p4-1"></td>
+                <td id="p5-1"></td>
+                <td id="p6-1"></td>
+                <td id="p7-1"></td>
+                <td id="p8-1"></td>
+                <td id="p9-1"></td>
             </tr>
             
             <!--row 0-->
             <tr>
-                <td id="p0,0"></td>
-                <td id="p1,0"></td>
-                <td id="p2,0"></td>
-                <td id="p3,0"></td>
-                <td id="p4,0"></td>
-                <td id="p5,0"></td>
-                <td id="p6,0"></td>
-                <td id="p7,0"></td>
-                <td id="p8,0"></td>
-                <td id="p9,0"></td>
+                <td id="p0-0"></td>
+                <td id="p1-0"></td>
+                <td id="p2-0"></td>
+                <td id="p3-0"></td>
+                <td id="p4-0"></td>
+                <td id="p5-0"></td>
+                <td id="p6-0"></td>
+                <td id="p7-0"></td>
+                <td id="p8-0"></td>
+                <td id="p9-0"></td>
             </tr>
         </table>
 		
@@ -169,7 +169,7 @@
 //BLUE SQUARE MOVEMENT
         //set the blue starting coordinates
         //blue position
-        var pos = "0,0";
+        var pos = "p0-0";
 		//blue position on X axis
         var xPos = 0;
 		//blue position on Y axis
@@ -215,35 +215,22 @@
             }
             
             //puts X and Y coordinates together blue square
-            pos = xPos + "," + yPos;
+            pos = "p" + xPos + "-" + yPos;
             
             //sets sidebar coordinates
-            document.getElementById("side").innerHTML = pos;
+            var sideBarPosition = xPos + "," + yPos;
+            document.getElementById("side").innerHTML = sideBarPosition;
             
-            //puts "p" in front of the variable to detect td class
-            pos = "p" + pos;
-            
-            //visual movement
-            //make variable for all td tags
-            var x = document.getElementsByTagName("td");
-            
-            //loop resets the background to black
-            var movementLoop;
-            for (movementLoop = 0; movementLoop < 63; movementLoop++) {
-                x[movementLoop].style.backgroundColor = "black";
-            }     
-                
-            //colors the squares back in after background reset
-            document.getElementById(pos).style.backgroundColor = "blue";
-            document.getElementById(Epos).style.backgroundColor = "red";   
+            //color function
+            color(); 
         }
 		
         
 //ENEMY 1 MOVEMENT
         var enemyInterval;
-        var Epos;
-        var ExPos = 9;
-        var EyPos = 5;
+        var enemyPosition = "p9-5";
+        var enemyPositionXAxis = 9;
+        var enemyPositionYAxis = 5;
         
         //set interval for enemy movement function every half second
         enemyInterval = setInterval(eMove, 500);
@@ -254,20 +241,20 @@
             
             //move towards player on X axis if chance = 0
             if (chance === 0) {
-                if (ExPos < xPos) {
-                    ExPos = ExPos + 1;
-                } else if (ExPos > xPos) {
-                    ExPos = ExPos - 1;
+                if (enemyPositionXAxis < xPos) {
+                    enemyPositionXAxis = enemyPositionXAxis + 1;
+                } else if (enemyPositionXAxis > xPos) {
+                    enemyPositionXAxis = enemyPositionXAxis - 1;
                 } else {
                     stalemate();
                 }
             } 
             //move towards player on Y axis if chance = 1
             else if (chance === 1) {
-                if (EyPos < yPos) {
-                    EyPos = EyPos + 1;
-                } else if (EyPos > yPos) {
-                    EyPos = EyPos - 1;
+                if (enemyPositionYAxis < yPos) {
+                    enemyPositionYAxis = enemyPositionYAxis + 1;
+                } else if (enemyPositionYAxis > yPos) {
+                    enemyPositionYAxis = enemyPositionYAxis - 1;
                 } else {
                     stalemate();
                 }
@@ -277,50 +264,40 @@
             //stalemate function moves enemy towards the player on the other axis if they are already on the same chosen axis
             function stalemate() {
                 if (chance === 0) {
-                    if (EyPos < yPos) {
-                        EyPos = EyPos + 1;
-                    } else if (EyPos > yPos) {
-                        EyPos = EyPos - 1;
+                    if (enemyPositionYAxis < yPos) {
+                        enemyPositionYAxis = enemyPositionYAxis + 1;
+                    } else if (enemyPositionYAxis > yPos) {
+                        enemyPositionYAxis = enemyPositionYAxis - 1;
                     }
                 } else {
-                    if (ExPos < xPos) {
-                        ExPos = ExPos + 1;
-                    } else if (ExPos > xPos) {
-                        ExPos = ExPos - 1;
+                    if (enemyPositionXAxis < xPos) {
+                        enemyPositionXAxis = enemyPositionXAxis + 1;
+                    } else if (enemyPositionXAxis > xPos) {
+                        enemyPositionXAxis = enemyPositionXAxis - 1;
                     }
                 }
             }
             
             //add enemy coordinates
-            Epos = ExPos + "," + EyPos;
-            document.getElementById("eSide").innerHTML = Epos;
-            Epos = "p" + Epos;
+            enemyPosition = "p" + enemyPositionXAxis + "-" + enemyPositionYAxis;
             
-            //enemy visual movement
-            var w = document.getElementsByTagName("td");
-        
-            //reset background loop 2
-            var eMovementLoop;
-            for (eMovementLoop = 0; eMovementLoop < 63; eMovementLoop++) {
-                    w[eMovementLoop].style.backgroundColor = "black";
-            } 
-        
-            //color the squares
-            document.getElementById(pos).style.backgroundColor = "blue";
-            document.getElementById(Epos).style.backgroundColor = "red";
+            //sidebar
+            var eSideBarPosition = enemyPositionXAxis + "," + enemyPositionYAxis;
+            document.getElementById("eSide").innerHTML = eSideBarPosition;
             
+            //color function
+            color();
         }
         
         
-//LEVEL TIMER
-        var timer;
-        var completionpercent = "";
+//LEVEL COUNTER / COMPLETION BAR
+        var completionPercent = "";
         var levelDisplay = "Level: 0";
         var level = 0;
-        timer = setInterval(timerFunc, 1000);
+        var timer = setInterval(timerFunc, 1000);
         function timerFunc() {
-            completionpercent = completionpercent + "|";
-            document.getElementById("completion").innerHTML = completionpercent;
+            completionPercent = completionPercent + "|";
+            document.getElementById("completion").innerHTML = completionPercent;
             if (completionpercent === "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||") {
                 
                 //reset bar
@@ -332,17 +309,25 @@
                 document.getElementById("level").innerHTML = levelDisplay;
             }
         }
-
 //ENEMY COLLISIONS
-        /*while (Epos === pos) {
+        /*while (enemyPosition === pos) {
                 alert("GAME OVER");
         }*/
         
-//COLORS STARTING SQUARES
-        pos = "p0,0";
-        Epos = "p9,5";
-        document.getElementById(pos).style.backgroundColor = "blue";
-        document.getElementById(Epos).style.backgroundColor = "red";
+//Visual Movment
+        var movementLoop;
+        var x = document.getElementsByTagName("td");
+            
+        color();
+        function color() {
+            var movementLoop;
+            for (movementLoop = 0; movementLoop < 63; movementLoop++) {
+                x[movementLoop].style.backgroundColor = "black";
+            }
+            
+            document.getElementById(pos).style.backgroundColor = "blue";
+            document.getElementById(enemyPosition).style.backgroundColor = "red";
+        }
         </script>
     </body>
 </html>
