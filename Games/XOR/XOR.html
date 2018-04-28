@@ -29,7 +29,7 @@
                 text-align: center;
             }
             
-            #grid, #sidebar, #topbar, #levelbar{
+            #grid, #sidebar, #topbar, #levelbar {
                 display: inline-block;
             }
         
@@ -175,9 +175,9 @@
 		//blue position on Y axis
         var yPos = 0;
         
-        //detect when a key is pressed
-        window.addEventListener("keyup", checkKeyPressed, false);
-        function checkKeyPressed(e) {
+        //bind keys
+        window.addEventListener("keyup", binds, false);
+        function binds(e) {
             
             //test for which key pressed and set coordinates
             if (e.keyCode == "40") {
@@ -227,14 +227,17 @@
 		
         
 //ENEMY 1 MOVEMENT
-        var enemyInterval;
+        //enemy coordinates default
+        //coords
         var enemyPosition = "p9-5";
+        //X axis
         var enemyPositionXAxis = 9;
+        //Y axis
         var enemyPositionYAxis = 5;
         
         //set interval for enemy movement function every half second
-        enemyInterval = setInterval(eMove, 500);
-        function eMove() {
+        var enemyInterval = setInterval(enemyMove, 500);
+        function enemyMove() {
             
             //genarates random number from 0-1
             var chance = Math.floor(Math.random() * 2);
@@ -243,7 +246,8 @@
             if (chance === 0) {
                 if (enemyPositionXAxis < xPos) {
                     enemyPositionXAxis = enemyPositionXAxis + 1;
-                } else if (enemyPositionXAxis > xPos) {
+                }
+                else if (enemyPositionXAxis > xPos) {
                     enemyPositionXAxis = enemyPositionXAxis - 1;
                 } else {
                     stalemate();
@@ -294,14 +298,14 @@
         var completionPercent = "";
         var levelDisplay = "Level: 0";
         var level = 0;
-        var timer = setInterval(timerFunc, 1000);
-        function timerFunc() {
+        var timer = setInterval(timer, 1000);
+        function timer() {
             completionPercent = completionPercent + "|";
             document.getElementById("completion").innerHTML = completionPercent;
-            if (completionpercent === "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||") {
+            if (completionPercent === "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||") {
                 
                 //reset bar
-                completionpercent = "";
+                completionPercent = "";
                 
                 //change level
                 level = level + 1;
