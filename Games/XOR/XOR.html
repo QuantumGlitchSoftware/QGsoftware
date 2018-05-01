@@ -43,7 +43,7 @@
                 font-size: 30px;
                 text-align: center;
             }
-            #eSide {
+            #enemySideBar {
                 color: red;
                 font-size: 30px;
                 text-align: center;
@@ -70,7 +70,7 @@
             <tr>
                 <td id="sidebar2">
                     <p id="side">0,0</p>
-                    <p id="eSide">9,5</p>
+                    <p id="enemySideBar">9,5</p>
                 </td>
             </tr>
         </table>
@@ -169,11 +169,11 @@
 //BLUE SQUARE MOVEMENT
         //set the blue starting coordinates
         //blue position
-        var pos = "p0-0";
+        var position = "p0-0";
 		//blue position on X axis
-        var xPos = 0;
+        var positionXAxis = 0;
 		//blue position on Y axis
-        var yPos = 0;
+        var positionYAxis = 0;
         
         //bind keys
         window.addEventListener("keyup", binds, false);
@@ -182,43 +182,43 @@
             //test for which key pressed and set coordinates
             if (e.keyCode == "40") {
                 //go down
-                yPos = yPos - 1;
+                positionYAxis = positionYAxis - 1;
             } else if (e.keyCode == "39") {
                 //go right
-                xPos = xPos + 1;
+                positionXAxis = positionXAxis + 1;
             } else if (e.keyCode == "38") {
                 //go up
-                yPos = yPos + 1;
+                positionYAxis = positionYAxis + 1;
             } else if (e.keyCode == "37") {
                 //go left
-                xPos = xPos - 1;
+                positionXAxis = positionXAxis - 1;
             }
             
             //collision detection top
-            if (yPos > 5) {
-                yPos = 5;
+            if (positionYAxis > 5) {
+                positionYAxis = 5;
             }
             
             //collision detection bottom
-            if (yPos < 0) {
-                yPos = 0;
+            if (positionYAxis < 0) {
+                positionYAxis = 0;
             }
             
             //collision detection left
-            if (xPos < 0) {
-                xPos = 0;
+            if (positionXAxis < 0) {
+                positionXAxis = 0;
             }
             
             //collision detection right
-            if (xPos > 9) {
-                xPos = 9;
+            if (positionXAxis > 9) {
+                positionXAxis = 9;
             }
             
             //puts X and Y coordinates together blue square
-            pos = "p" + xPos + "-" + yPos;
+            position = "p" + positionXAxis + "-" + positionYAxis;
             
             //sets sidebar coordinates
-            var sideBarPosition = xPos + "," + yPos;
+            var sideBarPosition = positionXAxis + "," + positionYAxis;
             document.getElementById("side").innerHTML = sideBarPosition;
             
             //color function
@@ -244,39 +244,55 @@
             
             //move towards player on X axis if chance = 0
             if (chance === 0) {
-                if (enemyPositionXAxis < xPos) {
+                //if enemy is to the left of the player, move right
+                if (enemyPositionXAxis < positionXAxis) {
                     enemyPositionXAxis = enemyPositionXAxis + 1;
                 }
-                else if (enemyPositionXAxis > xPos) {
+                //if enemy is to the right of the player, move left
+                else if (enemyPositionXAxis > positionXAxis) {
                     enemyPositionXAxis = enemyPositionXAxis - 1;
                 } else {
+                    //if enemy is on the same axis, call stalemate function
                     stalemate();
                 }
-            } 
+            }
             //move towards player on Y axis if chance = 1
             else if (chance === 1) {
-                if (enemyPositionYAxis < yPos) {
+                //if enemy is below the player, move up
+                if (enemyPositionYAxis < positionYAxis) {
                     enemyPositionYAxis = enemyPositionYAxis + 1;
-                } else if (enemyPositionYAxis > yPos) {
+                }
+                //if enemy is above the player, move down
+                else if (enemyPositionYAxis > positionYAxis) {
                     enemyPositionYAxis = enemyPositionYAxis - 1;
                 } else {
+                    //if enemy is on the same axis, call stalemate function
                     stalemate();
                 }
             }
             
             
-            //stalemate function moves enemy towards the player on the other axis if they are already on the same chosen axis
+            //stalemate function moves enemy towards the player on the other axis if they are already on the same chosen axis. essentially, this code is identical to the code above, it is just reversed, so if chance = 0, it would be like making chance = 1. this way when the square is on the same axis, it doesn't freeze or get confused.
             function stalemate() {
+                //move towards player on Y axis if chance = 1
                 if (chance === 0) {
-                    if (enemyPositionYAxis < yPos) {
+                    //if enemy is below the player, move up
+                    if (enemyPositionYAxis < positionYAxis) {
                         enemyPositionYAxis = enemyPositionYAxis + 1;
-                    } else if (enemyPositionYAxis > yPos) {
+                    }
+                    //if enemy is above the player, move down
+                    else if (enemyPositionYAxis > yPos) {
                         enemyPositionYAxis = enemyPositionYAxis - 1;
                     }
-                } else {
-                    if (enemyPositionXAxis < xPos) {
+                }
+                //move towards player on X axis if chance = 0
+                else {
+                    //if enemy is to the left of the player, move right
+                    if (enemyPositionXAxis < positionXAxis) {
                         enemyPositionXAxis = enemyPositionXAxis + 1;
-                    } else if (enemyPositionXAxis > xPos) {
+                    }
+                    //if enemy is to the right of the player, move left
+                    else if (enemyPositionXAxis > positionXAxis) {
                         enemyPositionXAxis = enemyPositionXAxis - 1;
                     }
                 }
@@ -285,9 +301,11 @@
             //add enemy coordinates
             enemyPosition = "p" + enemyPositionXAxis + "-" + enemyPositionYAxis;
             
-            //sidebar
-            var eSideBarPosition = enemyPositionXAxis + "," + enemyPositionYAxis;
-            document.getElementById("eSide").innerHTML = eSideBarPosition;
+            //sidebar enemy coordinates
+            //put comma inbetween the enemy coordinates
+            var enemySideBarPosition = enemyPositionXAxis + "," + enemyPositionYAxis;
+            //put the coordinates onto the sidebar
+            document.getElementById("enemySideBar").innerHTML = enemySideBarPosition;
             
             //color function
             color();
@@ -295,42 +313,53 @@
         
         
 //LEVEL COUNTER / COMPLETION BAR
+        //ammount of "|"s in the completion bar
         var completionPercent = "";
+        //the text displayed in the level counter
         var levelDisplay = "Level: 0";
+        //the level number itself
         var level = 0;
+        
+        //timer interval set to run function every 1 second
         var timer = setInterval(timer, 1000);
         function timer() {
+            //add one | to the bar
             completionPercent = completionPercent + "|";
+            //update the html tag
             document.getElementById("completion").innerHTML = completionPercent;
+            //test for timer full
             if (completionPercent === "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||") {
                 
                 //reset bar
                 completionPercent = "";
                 
-                //change level
+                //add +1 to level
                 level = level + 1;
+                //combine "LEVEL:" and level number
                 levelDisplay = "LEVEL: " + level;
+                //add to the display
                 document.getElementById("level").innerHTML = levelDisplay;
             }
         }
 //ENEMY COLLISIONS
-        /*while (enemyPosition === pos) {
+        //TODO: make this actually work that might be nice
+        while (enemyPosition === position) {
                 alert("GAME OVER");
-        }*/
+        }
         
 //Visual Movment
         var movementLoop;
         var x = document.getElementsByTagName("td");
-            
+        
         color();
         function color() {
-            var movementLoop;
             for (movementLoop = 0; movementLoop < 63; movementLoop++) {
                 x[movementLoop].style.backgroundColor = "black";
             }
             
-            document.getElementById(pos).style.backgroundColor = "blue";
+            document.getElementById(position).style.backgroundColor = "blue";
             document.getElementById(enemyPosition).style.backgroundColor = "red";
+            
         }
         </script>
     </body>
