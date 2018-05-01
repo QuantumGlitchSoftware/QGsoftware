@@ -175,6 +175,17 @@
 		//blue position on Y axis
         var positionYAxis = 0;
         
+        //player indicator position
+        //top
+        var positionIndicatorTop;
+        //bottom
+        var positionIndicatorBottom;
+        //left
+        var positionIndicatorLeft;
+        //right
+        var posiionIndicatorRight;
+        
+        
         //bind keys
         window.addEventListener("keyup", binds, false);
         function binds(e) {
@@ -217,12 +228,22 @@
             //puts X and Y coordinates together blue square
             position = "p" + positionXAxis + "-" + positionYAxis;
             
+            //indicator coordinates
+            //top
+            positionIndicatorTop = "p" + positionXAxis + "-" + 5;
+            //bottom
+            positionIndicatorBottom = "p" + positionXAxis + "-" + 0;
+            //left
+            positionIndicatorLeft = "p" + 0 + "-" + positionYAxis;
+            //right
+            positionIndicatorRight = "p" + 9 + "-" + positionYAxis;
+            
             //sets sidebar coordinates
             var sideBarPosition = positionXAxis + "," + positionYAxis;
             document.getElementById("side").innerHTML = sideBarPosition;
             
             //color function
-            color(); 
+            color();
         }
 		
         
@@ -281,7 +302,7 @@
                         enemyPositionYAxis = enemyPositionYAxis + 1;
                     }
                     //if enemy is above the player, move down
-                    else if (enemyPositionYAxis > yPos) {
+                    else if (enemyPositionYAxis > positionYAxis) {
                         enemyPositionYAxis = enemyPositionYAxis - 1;
                     }
                 }
@@ -360,12 +381,23 @@
             for (movementLoop = 0; movementLoop < 63; movementLoop++) {
                 //set td tag to background color black
                 td[movementLoop].style.backgroundColor = "black";
+                td[movementLoop].style.border = "solid 1px white";
             }
+            //squares
             //color player square
             document.getElementById(position).style.backgroundColor = "blue";
             //color enemy square
             document.getElementById(enemyPosition).style.backgroundColor = "red";
             
+            //indicators player
+            //top
+            document.getElementById(positionIndicatorTop).style.borderTop = "solid thick blue";
+            //bottom
+            document.getElementById(positionIndicatorBottom).style.borderBottom = "solid thick blue";
+            //left
+            document.getElementById(positionIndicatorLeft).style.borderLeft = "solid thick blue";
+            //right
+            document.getElementById(positionIndicatorRight).style.borderRight = "solid thick blue";
         }
         </script>
     </body>
