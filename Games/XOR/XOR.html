@@ -348,16 +348,22 @@
         }
         
 //Visual Movment
+        //variable used in the for loop
         var movementLoop;
-        var x = document.getElementsByTagName("td");
-        
+        //variable element td tags
+        var td = document.getElementsByTagName("td");
+        //call color function
         color();
+        //function resets background and then colors what needs to be colored
         function color() {
+            //set movementloop to every number in td array
             for (movementLoop = 0; movementLoop < 63; movementLoop++) {
-                x[movementLoop].style.backgroundColor = "black";
+                //set td tag to background color black
+                td[movementLoop].style.backgroundColor = "black";
             }
-            
+            //color player square
             document.getElementById(position).style.backgroundColor = "blue";
+            //color enemy square
             document.getElementById(enemyPosition).style.backgroundColor = "red";
             
         }
