@@ -177,13 +177,13 @@
         
         //player indicator position
         //top
-        var positionIndicatorTop;
+        var positionIndicatorTop = "p0-5";
         //bottom
-        var positionIndicatorBottom;
+        var positionIndicatorBottom = "p0-0";
         //left
-        var positionIndicatorLeft;
+        var positionIndicatorLeft = "p0-0";
         //right
-        var posiionIndicatorRight;
+        var positionIndicatorRight = "p9-0";
         
         
         //bind keys
@@ -241,9 +241,6 @@
             //sets sidebar coordinates
             var sideBarPosition = positionXAxis + "," + positionYAxis;
             document.getElementById("side").innerHTML = sideBarPosition;
-            
-            //color function
-            color();
         }
 		
         
@@ -255,6 +252,16 @@
         var enemyPositionXAxis = 9;
         //Y axis
         var enemyPositionYAxis = 5;
+        
+        //indicator indicator position
+        //top
+        var enemyPositionIndicatorTop;
+        //bottom
+        var enemyPositionIndicatorBottom;
+        //left
+        var enemyPositionIndicatorLeft;
+        //right
+        var enemyPosiionIndicatorRight;    
         
         //set interval for enemy movement function every half second
         var enemyInterval = setInterval(enemyMove, 500);
@@ -322,14 +329,21 @@
             //add enemy coordinates
             enemyPosition = "p" + enemyPositionXAxis + "-" + enemyPositionYAxis;
             
+            //enemy indicator coordinates
+            //top
+            enemyPositionIndicatorTop = "p" + enemyPositionXAxis + "-" + 5;
+            //bottom
+            enemyPositionIndicatorBottom = "p" + enemyPositionXAxis + "-" + 0;
+            //left
+            enemyPositionIndicatorLeft = "p" + 0 + "-" + enemyPositionYAxis;
+            //right
+            enemyPositionIndicatorRight = "p" + 9 + "-" + enemyPositionYAxis;
+            
             //sidebar enemy coordinates
             //put comma inbetween the enemy coordinates
             var enemySideBarPosition = enemyPositionXAxis + "," + enemyPositionYAxis;
             //put the coordinates onto the sidebar
             document.getElementById("enemySideBar").innerHTML = enemySideBarPosition;
-            
-            //color function
-            color();
         }
         
         
@@ -362,26 +376,30 @@
                 document.getElementById("level").innerHTML = levelDisplay;
             }
         }
-//ENEMY COLLISIONS
-        //TODO: make this actually work that might be nice
-        while (enemyPosition === position) {
-                alert("GAME OVER");
-        }
+        
         
 //Visual Movment
-        //variable used in the for loop
+        //variable used in the for color loop
         var movementLoop;
         //variable element td tags
         var td = document.getElementsByTagName("td");
-        //call color function
-        color();
+        
+        //call function every tick
+        var clockinterval = setInterval(clock, 0);
         //function resets background and then colors what needs to be colored
-        function color() {
+        function clock() {
+            //color in everything
             //set movementloop to every number in td array
             for (movementLoop = 0; movementLoop < 63; movementLoop++) {
                 //set td tag to background color black
                 td[movementLoop].style.backgroundColor = "black";
                 td[movementLoop].style.border = "solid 1px white";
+            
+                //enemy collisions
+                if (enemyPosition === position) {
+                    alert("GAME OVER");
+                }
+            
             }
             //squares
             //color player square
@@ -391,13 +409,23 @@
             
             //indicators player
             //top
-            document.getElementById(positionIndicatorTop).style.borderTop = "solid thick blue";
+            document.getElementById(positionIndicatorTop).style.borderTop = "solid thick #000066";
             //bottom
-            document.getElementById(positionIndicatorBottom).style.borderBottom = "solid thick blue";
+            document.getElementById(positionIndicatorBottom).style.borderBottom = "solid thick #000066";
             //left
-            document.getElementById(positionIndicatorLeft).style.borderLeft = "solid thick blue";
+            document.getElementById(positionIndicatorLeft).style.borderLeft = "solid thick #000066";
             //right
-            document.getElementById(positionIndicatorRight).style.borderRight = "solid thick blue";
+            document.getElementById(positionIndicatorRight).style.borderRight = "solid thick #000066";
+            
+            //indicators enemy
+            //top
+            document.getElementById(enemyPositionIndicatorTop).style.borderTop = "solid thick #b30000";
+            //bottom
+            document.getElementById(enemyPositionIndicatorBottom).style.borderBottom = "solid thick #b30000";
+            //left
+            document.getElementById(enemyPositionIndicatorLeft).style.borderLeft = "solid thick #b30000";
+            //right
+            document.getElementById(enemyPositionIndicatorRight).style.borderRight = "solid thick #b30000";
         }
         </script>
     </body>
